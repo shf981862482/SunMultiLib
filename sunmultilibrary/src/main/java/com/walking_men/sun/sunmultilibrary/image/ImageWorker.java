@@ -321,6 +321,17 @@ public class ImageWorker {
         return null;
     }
 
+    public static DrawableTypeRequest<Integer> buildFitCenterImageRequest(final Context context, int url) {
+        if (0 != url) {
+            DrawableTypeRequest<Integer> stringDrawableTypeRequest = Glide.with(context).load(url);
+            stringDrawableTypeRequest
+                    .diskCacheStrategy(DiskCacheStrategy.ALL)
+                    .fitCenter();
+            return stringDrawableTypeRequest;
+        }
+        return null;
+    }
+
     public static DrawableTypeRequest<String> buildCenterCropImageRequest(final Context context, String url) {
         if (!TextUtils.isEmpty(url)) {
             DrawableTypeRequest<String> stringDrawableTypeRequest = Glide.with(context).load(url);
@@ -331,5 +342,6 @@ public class ImageWorker {
         }
         return null;
     }
+
 
 }

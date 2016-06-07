@@ -5,15 +5,40 @@ import android.app.Activity;
 import com.walking_men.sun.sunmultilibrary.utils.DeviceInfo;
 import com.walking_men.sun.sunmultilibrary.utils.DisplayUtil;
 import com.walking_men.sun.sunmultilibrary.utils.FileUtils;
+import com.walking_men.sun.sunmultilibrary.utils.SunLogger;
 
 
 /**
  * Created by zhai on 16/5/8.
  */
 public class SunWorkLibHellpter {
+    private volatile static SunWorkLibHellpter mInstance;
 
-    public static void initImageSdPath(String sdPath) {
-        FileUtils.initImageSdPath(sdPath);
+    public static SunWorkLibHellpter getInstance() {
+        if (mInstance == null) {
+            synchronized (SunWorkLibHellpter.class) {
+                if (mInstance == null) {
+                    mInstance = new SunWorkLibHellpter();
+                }
+            }
+        }
+        return mInstance;
+    }
+
+    private SunWorkLibHellpter() {
+
+    }
+
+    /**
+     * @param sdImagePath
+     */
+    public SunWorkLibHellpter setSdCardImagePath(String sdImagePath) {
+        FileUtils.initImageSdPath(sdImagePath);
+        return this;
+    }
+
+    public void setIsSHowLog(String tag, boolean isSHowLog) {
+        SunLogger.init(tag, isSHowLog);
     }
 
     /**
@@ -21,7 +46,7 @@ public class SunWorkLibHellpter {
      *
      * @param activity
      */
-    public static void splashInit(Activity activity) {
+    public void splashInit(Activity activity) {
         DisplayUtil.init(activity);
         DeviceInfo.init(activity, activity);//初始化设备信息
     }
