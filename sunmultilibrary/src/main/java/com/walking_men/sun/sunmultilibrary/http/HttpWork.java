@@ -15,7 +15,7 @@ import com.walking_men.sun.sunmultilibrary.http.callback.NetworkCallback;
 import com.walking_men.sun.sunmultilibrary.http.responser.AbstractResponser;
 import com.walking_men.sun.sunmultilibrary.http.upload.ProgressHelper;
 import com.walking_men.sun.sunmultilibrary.http.upload.UIProgressListener;
-import com.walking_men.sun.sunmultilibrary.rxandroid.schedulers.AndroidSchedulers;
+import rx.android.schedulers.AndroidSchedulers;
 
 import okhttp3.Call;
 import okhttp3.RequestBody;

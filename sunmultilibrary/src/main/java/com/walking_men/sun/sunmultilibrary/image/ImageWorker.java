@@ -15,7 +15,7 @@ import com.bumptech.glide.load.resource.drawable.GlideDrawable;
 import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.animation.GlideAnimation;
 import com.bumptech.glide.request.target.SimpleTarget;
-import com.walking_men.sun.sunmultilibrary.rxandroid.schedulers.AndroidSchedulers;
+import rx.android.schedulers.AndroidSchedulers;
 import com.walking_men.sun.sunmultilibrary.utils.FileUtils;
 
 import jp.wasabeef.glide.transformations.BlurTransformation;

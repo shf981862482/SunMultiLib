@@ -3,7 +3,7 @@ package com.walking_men.sun.sunmultilibrary;
 import android.app.Activity;
 
 import com.walking_men.sun.sunmultilibrary.utils.DeviceInfo;
-import com.walking_men.sun.sunmultilibrary.utils.DisplayUtil;
+import com.walking_men.sun.sunmultilibrary.utils.SunDisplayUtil;
 import com.walking_men.sun.sunmultilibrary.utils.FileUtils;
 import com.walking_men.sun.sunmultilibrary.utils.SunLogger;
 
@@ -47,7 +47,6 @@ public class SunWorkLibHellpter {
      * @param activity
      */
     public void splashInit(Activity activity) {
-        DisplayUtil.init(activity);
         DeviceInfo.init(activity, activity);//初始化设备信息
     }
 
