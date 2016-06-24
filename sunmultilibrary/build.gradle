@@ -3,9 +3,9 @@ apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: 'com.jfrog.bintray'
 
 // 这个version是区分library版本的，因此当我们需要更新library时记得修改这个version
-// 这个version影响后面的引用  https://github.com/jy03773322/MMWorkDemo/ version = "0.3.9.0"
+// 这个version影响后面的引用  https://github.com/jy03773322/MMWorkDemo/ version = "0.4.0.7"
 //160616 1904
-version = "0.0.5"
+version = "0.0.6"
 
 android {
     resourcePrefix "sun" //随意填写

@@ -1,1 +1,1 @@
-include ':app', ':sunmultilibrary'
+include ':app', ':sunmultilibrary', ':annotaion', ':compiler'

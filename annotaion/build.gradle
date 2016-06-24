@@ -1,0 +1,65 @@
+apply plugin: 'java'
+apply plugin: 'com.github.dcendents.android-maven'
+apply plugin: 'com.jfrog.bintray'
+
+sourceCompatibility = 1.7
+targetCompatibility = 1.7
+
+// 根节点添加
+version = "0.0.1"
+def siteUrl = 'https://github.com/shf981862482/SunMultiLib'   // 项目的主页
+def gitUrl = 'git@github.com/shf981862482/SunMultiLib.git'   // Git仓库的url
+group = "com.sun_multi"            // Maven Group ID for the artifact，一般填你唯一的包名
+
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+}
+
+// 根节点添加
+install {
+    repositories.mavenInstaller {
+        // This generates POM.xml with proper parameters
+        pom {
+            project {
+                packaging 'jar'
+                name 'android lib'
+                url siteUrl
+                licenses {
+                    license {
+                        name 'The Apache Software License, Version 2.0'
+                        url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    }
+                }
+                developers {
+                    developer {
+                        id 'walking_men'        //填写的一些基本信息
+                        name 'walking_men'
+                        email '15726688579@163.com'
+                    }
+                }
+                scm {
+                    connection gitUrl
+                    developerConnection gitUrl
+                    url siteUrl
+                }
+            }
+        }
+    }
+}
+
+Properties properties = new Properties()
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
+bintray {
+    user = properties.getProperty("bintray.user")
+    key = properties.getProperty("bintray.apikey")
+    configurations = ['archives']
+    pkg {
+        repo = "maven"
+        name = "sun_annotaion"                // project name in jcenter
+        websiteUrl = siteUrl
+        vcsUrl = gitUrl
+        licenses = ["Apache-2.0"]
+        publish = true
+    }
+}

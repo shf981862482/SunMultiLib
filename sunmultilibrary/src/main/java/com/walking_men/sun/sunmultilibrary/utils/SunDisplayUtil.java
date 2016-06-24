@@ -1,6 +1,5 @@
 package com.walking_men.sun.sunmultilibrary.utils;
 
-import android.app.Activity;
 import android.content.Context;
 import android.view.WindowManager;
 
@@ -16,13 +15,13 @@ public class SunDisplayUtil {
     public static int contentTop;//状态栏高
 
     public static int getScreenHeight(Context context) {
-        WindowManager wm = ((Activity) context).getWindowManager();
+        WindowManager wm = (WindowManager) Global.getContext().getSystemService(Context.WINDOW_SERVICE);
         return wm.getDefaultDisplay().getHeight();
     }
 
     public static int getScreenWidth() {
         if (0 == mScreenWidth) {
-            WindowManager wm = (WindowManager) SunLibApplication.context.getSystemService(Context.WINDOW_SERVICE);
+            WindowManager wm = (WindowManager) Global.getContext().getSystemService(Context.WINDOW_SERVICE);
             mScreenWidth = wm.getDefaultDisplay().getWidth();
         }
         return mScreenWidth;
@@ -30,20 +29,20 @@ public class SunDisplayUtil {
 
     public static int getScreenHeight() {
         if (0 == mScreenHeight) {
-            WindowManager wm = (WindowManager) SunLibApplication.context.getSystemService(Context.WINDOW_SERVICE);
+            WindowManager wm = (WindowManager) Global.getContext().getSystemService(Context.WINDOW_SERVICE);
             mScreenHeight = wm.getDefaultDisplay().getHeight();
         }
         return mScreenHeight;
     }
 
-    public static int contentTop(Activity activity) {
+    public static int contentTop() {
         if (0 == contentTop) {
             try {
                 Class c = Class.forName("com.android.internal.R$dimen");
                 Object obj = c.newInstance();
                 Field field = c.getField("status_bar_height");
                 int x = Integer.parseInt(field.get(obj).toString());
-                contentTop = activity.getResources().getDimensionPixelSize(x);
+                contentTop =  Global.getContext().getResources().getDimensionPixelSize(x);
             } catch (ClassNotFoundException e) {
                 e.printStackTrace();
             } catch (IllegalAccessException e) {

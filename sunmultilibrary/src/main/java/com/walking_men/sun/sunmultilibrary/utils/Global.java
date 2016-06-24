@@ -15,8 +15,10 @@ public class Global {
     private static Looper mLooper;
     private static Handler mWorkHandler;
     private static Handler uiHandler;
+    //判断是否在前台
+    public static boolean isPageFont;
     //application上下文
-    public static Context mContext;
+    private static Context mContext;
 
     static {
         HandlerThread mThread = new HandlerThread(WORK_THREAD_NAME);
@@ -37,6 +39,10 @@ public class Global {
      */
     public static Context getContext() {
         return mContext;
+    }
+
+    public static void setContext(Context mContext) {
+        Global.mContext = mContext;
     }
 
     /***

@@ -2,9 +2,12 @@ package com.walking_men.sun.sunmultilibrary.utils;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.Build;
+import android.text.TextUtils;
 import android.util.DisplayMetrics;
 
 public class DeviceInfo {
@@ -16,6 +19,11 @@ public class DeviceInfo {
 
 	public static String MACADDRESS;
 	public static String RESOLUTION;
+
+	private static String sPackageName;
+	private static String sVersionName;
+	private static int sVersionCode;
+
 
 	public static void init(Context context, Activity activity) {
 		// String myIMSI = android.os.SystemProperties.get(android.telephony.TelephonyProperties.PROPERTY_IMSI);
@@ -54,15 +62,19 @@ public class DeviceInfo {
 	public static String getModelAndFactor() {
 		return Build.MODEL + "/" + Build.MANUFACTURER;
 	}
+
 	/**
 	 * 获得手机型号
+	 *
 	 * @return
 	 */
 	public static String getMobileModel() {
 		return Build.MODEL;
 	}
+
 	/**
 	 * 获得手机制造商
+	 *
 	 * @return
 	 */
 	public static String getManufacturer() {
@@ -141,8 +153,49 @@ public class DeviceInfo {
 		return sdkStr;
 	}
 
+	public static String getPackageName() {
+		if (TextUtils.isEmpty(sPackageName)) {
+			sPackageName = Global.getContext().getPackageName();
+		}
+		return sPackageName;
+	}
+
+	public static String getVersionName() {
+		if (TextUtils.isEmpty(sVersionName)) {
+			try {
+				PackageInfo info = Global.getContext().getPackageManager()
+						.getPackageInfo(getPackageName(), 0);
+				sVersionName = info.versionName;
+			} catch (PackageManager.NameNotFoundException e) {
+				e.printStackTrace();
+				return "";
+			}
+		}
+		return sVersionName;
+	}
+
+	/**
+	 * 获取版本号
+	 *
+	 * @return
+	 */
+	public static int getVersionCode() {
+		if (0 == sVersionCode) {
+			try {
+				PackageInfo info = Global.getContext().getPackageManager()
+						.getPackageInfo(getPackageName(), 0);
+				sVersionCode = info.versionCode;
+			} catch (PackageManager.NameNotFoundException e) {
+				e.printStackTrace();
+				return 0;
+			}
+		}
+		return sVersionCode;
+	}
+
 	/**
 	 * 获取mac地址
+	 *
 	 * @param context
 	 * @return
 	 */
@@ -154,6 +207,7 @@ public class DeviceInfo {
 
 	/**
 	 * 获取屏幕信息
+	 *
 	 * @param activity
 	 * @return
 	 */
