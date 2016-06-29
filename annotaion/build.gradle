@@ -6,7 +6,7 @@ sourceCompatibility = 1.7
 targetCompatibility = 1.7
 
 // 根节点添加
-version = "0.0.1"
+version = "0.0.2"
 def siteUrl = 'https://github.com/shf981862482/SunMultiLib'   // 项目的主页
 def gitUrl = 'git@github.com/shf981862482/SunMultiLib.git'   // Git仓库的url
 group = "com.sun_multi"            // Maven Group ID for the artifact，一般填你唯一的包名

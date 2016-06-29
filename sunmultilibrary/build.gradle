@@ -2,10 +2,11 @@ apply plugin: 'com.android.library'
 apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: 'com.jfrog.bintray'
 
+
 // 这个version是区分library版本的，因此当我们需要更新library时记得修改这个version
-// 这个version影响后面的引用  https://github.com/jy03773322/MMWorkDemo/ version = "0.4.0.7"
-//160616 1904
-version = "0.0.6"
+// 这个version影响后面的引用  https://github.com/jy03773322/MMWorkDemo/ version = "0.4.2.0"
+//160629  1625
+version = "0.0.8"
 
 android {
     resourcePrefix "sun" //随意填写
@@ -43,7 +44,7 @@ dependencies {
     compile 'io.reactivex:rxjava:1.1.5'
     compile 'io.reactivex:rxandroid:1.2.0'
     compile 'com.squareup.okhttp3:okhttp:3.1.2'
-    compile 'com.google.code.gson:gson:2.5'
+    compile 'com.google.code.gson:gson:2.6'
     compile 'com.github.bumptech.glide:glide:3.7.0'
     compile 'jp.wasabeef:glide-transformations:2.0.1'
     compile 'com.android.support:appcompat-v7:23.4.0'
