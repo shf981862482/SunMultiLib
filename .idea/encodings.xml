@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="Encoding" native2AsciiForPropertiesFiles="true" defaultCharsetForPropertiesFiles="UTF-8">
-    <file url="file://$PROJECT_DIR$/sunmultilibrary/src/main/java/com/walking_men/sun/sunmultilibrary/db/DataBaseCommon.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/sunmultilibrary/src/main/java/com/walking_men/sun/sunmultilibrary/db/DatabaseHelper.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/sunmultilibrary/src/main/java/com/walking_men/sun/sunmultilibrary/utils/DensityUtility.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/sunmultilibrary/src/main/java/com/walking_men/sun/sunmultilibrary/utils/DeviceInfo.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/sunmultilibrary/src/main/java/com/walking_men/sun/sunmultilibrary/utils/EntityUtils.java" charset="UTF-8" />
+  <component name="Encoding">
     <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>
