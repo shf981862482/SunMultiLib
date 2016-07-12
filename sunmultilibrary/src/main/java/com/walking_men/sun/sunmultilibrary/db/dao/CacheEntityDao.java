@@ -38,10 +38,10 @@ public class CacheEntityDao {
         return cnt;
     }
 
-    public int saveItem(NetWorkRsultEntity user) {
+    public int saveItem(NetWorkRsultEntity entity) {
         int cnt = 0;
         try {
-            Dao.CreateOrUpdateStatus createOrUpdateStatus = mCacheDao.createOrUpdate(user);
+            Dao.CreateOrUpdateStatus createOrUpdateStatus = mCacheDao.createOrUpdate(entity);
             cnt++;
         } catch (SQLException e) {
             Log.e(TAG, e.getMessage());

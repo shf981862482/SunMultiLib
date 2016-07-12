@@ -17,22 +17,23 @@ public abstract class SunLibApplication extends Application {
     }
 
     @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(base);
+        Global.setContext(getApplicationContext());
+    }
+
+    @Override
     public void onCreate() {
         super.onCreate();
-        SunWorkLibHellpter.getInstance()
-                .setSdCardImagePath(initSDCardImagePath())
-                .setIsSHowLog(initLogTag(), initIsLog());
-
-        Global.setContext(getApplicationContext());
         Global.post2work(new Runnable() {
             @Override
             public void run() {
                 SunWorkLibHellpter.getInstance()
+                        .initDeviceInfo(Global.getContext())
                         .setSdCardImagePath(initSDCardImagePath())
                         .setIsSHowLog(initLogTag(), initIsLog());
             }
         });
-
     }
 
     public abstract String initSDCardImagePath();

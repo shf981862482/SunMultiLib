@@ -4,9 +4,9 @@ apply plugin: 'com.jfrog.bintray'
 
 
 // 这个version是区分library版本的，因此当我们需要更新library时记得修改这个version
-// 这个version影响后面的引用  https://github.com/jy03773322/MMWorkDemo/ version = "0.4.2.0"
-//160629  1625
-version = "0.0.8"
+// 这个version影响后面的引用  https://github.com/jy03773322/MMWorkDemo/ version = "0.4.3.0"
+// Jul 6, 2016
+version = "0.0.9"
 
 android {
     resourcePrefix "sun" //随意填写

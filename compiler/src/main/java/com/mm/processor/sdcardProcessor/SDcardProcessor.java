@@ -31,7 +31,7 @@ import javax.tools.Diagnostic;
 
 /**
  * Created by zhai on 16/6/21.
- * SDUtils解析类
+ * SDUtils
  */
 @AutoService(Processor.class)
 public class SDcardProcessor extends AbstractProcessor {

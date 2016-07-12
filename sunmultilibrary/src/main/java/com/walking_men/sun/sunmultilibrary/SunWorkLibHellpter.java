@@ -1,9 +1,8 @@
 package com.walking_men.sun.sunmultilibrary;
 
-import android.app.Activity;
+import android.content.Context;
 
 import com.walking_men.sun.sunmultilibrary.utils.DeviceInfo;
-import com.walking_men.sun.sunmultilibrary.utils.SunDisplayUtil;
 import com.walking_men.sun.sunmultilibrary.utils.FileUtils;
 import com.walking_men.sun.sunmultilibrary.utils.SunLogger;
 
@@ -37,17 +36,19 @@ public class SunWorkLibHellpter {
         return this;
     }
 
-    public void setIsSHowLog(String tag, boolean isSHowLog) {
+    public SunWorkLibHellpter setIsSHowLog(String tag, boolean isSHowLog) {
         SunLogger.init(tag, isSHowLog);
+        return this;
     }
 
     /**
      * 在闪屏幕中的初始化
      *
-     * @param activity
+     * @param context
      */
-    public void splashInit(Activity activity) {
-        DeviceInfo.init(activity, activity);//初始化设备信息
+    public SunWorkLibHellpter initDeviceInfo(Context context) {
+        DeviceInfo.init(context);//初始化设备信息
+        return this;
     }
 
 }
